@@ -9,7 +9,7 @@ temp=read_table(dataurl,
                               "AUG","SEP","OCT","NOV",  
                               "DEC","DJF","MAM","JJA",  
                               "SON","metANN"))
-
+ 
 ggplot(data=temp,aes(x=YEAR,y=JJA))+
   geom_line(na.rm=TRUE)+
   #geom_smooth(col="red",fill="yellow")+
