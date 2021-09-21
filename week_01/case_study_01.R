@@ -8,5 +8,5 @@ ggplot(iris) +
   labs(title = "Petal Length") +
   theme_minimal() +
   theme(plot.title = element_text(size = 20L, hjust = 0.5))
-
+ 
 
