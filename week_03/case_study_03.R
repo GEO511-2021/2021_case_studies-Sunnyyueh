@@ -39,4 +39,4 @@ ggarrange(up, low + font("x.text", size = 10),
                     ncol = 1, nrow = 2)  
   
 figure
-
+ggsave("case_study_03.png")
