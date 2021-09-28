@@ -1,22 +1,40 @@
 ---
 title: "Case Study 04"
-author: Your Name
+author: Sunny Yueh
 date: August 1, 2020
 output: github_document
 ---
 
 ## First Header
 
-Comments
+```{r, message=FALSE}
+library(tidyverse)
+library(nycflights13)
 
-```{r}
-summary(cars)
+airlines
+flights<-flights
+airports<-airports
+
+far<-flights%>%
+  arrange(desc(distance))%>%
+  slice(1)
+
+
+far2<-merge(x=far,y=airports, by.x="dest",by.y="faa",all.x=TRUE)
+
+
+air_p<-airports
+colnames(air_p)[1]<-"dest"
+
+library(dplyr)
+FAR= far %>% 
+  left_join(air_p,by="dest")%>%
+  select(name)
+
+farthest_airport<-as.character(FAR)
+farthest_airport
+
 ```
+The farthest airport is Honolulu Intl.
 
-## Second Header
 
-Comments
-
-```{r}
-plot(pressure)
-```
