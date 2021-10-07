@@ -1,16 +1,16 @@
 ---
 title: "Case Study 06"
-author: Your Name
-date: August 1, 2020
+author: Sunny Yueh
+date: October 12, 2021
 output: github_document
 ---
  
 ```{r, message=FALSE}
-library(raster)
-library(sp)
-library(spData)
+library(raster)  
+library(sp)   
+library(spData)  
 library(tidyverse)
-library(sf)   
+library(sf)       
 ```
 
 
@@ -19,8 +19,8 @@ data(world)  #load 'world' data from spData package
 tmax_monthly <- getData(name = "worldclim", var="tmax", res=10)
 
 library(ncdf4)
-download.file("https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc","crudata.nc")
-tmean=raster("crudata.nc")
+#download.file("https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc","crudata.nc")
+#tmean=raster("crudata.nc")
 ```
 
 ```{r, message=FALSE}
