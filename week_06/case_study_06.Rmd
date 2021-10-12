@@ -7,7 +7,7 @@ output: github_document
  
 ```{r, message=FALSE}
 library(raster)  
-library(sp)   
+library(sp)      
 library(spData)  
 library(tidyverse)
 library(sf)       
@@ -29,10 +29,13 @@ world<-as(world,"Spatial")
 
 plot(tmax_monthly)
 
+#Changing the temp
 gain(tmax_monthly )<-0.1
 tmax_annual<-max(tmax_monthly)
+#Change the column name
 names(tmax_annual) <- "tmax"
 
+#combine world polygon and the temp raster data
 max_tem_country<- raster::extract(tmax_annual, world, fun=max, na.rm=T, small=T, sp=T)
 max_tem_country<- st_as_sf(max_tem_country)
 
@@ -49,7 +52,7 @@ hottest_country<- max_tem_country%>%
   group_by(continent)%>%
   top_n(tmax,n=1)%>%
   select(name_long,continent,tmax)%>%
-  arrange(desc(tmax))%>%
+  arrange(desc(tmax))%>% #arrange the temp from high to low
   st_set_geometry(NULL)
 
 
