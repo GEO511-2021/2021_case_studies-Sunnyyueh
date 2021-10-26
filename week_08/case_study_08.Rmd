@@ -9,7 +9,7 @@ output:
   word_document: default
 ---
 ```{r,results='hide',message=FALSE, echo=F}
-library(tidyverse)
+library(tidyverse) 
 library(knitr)
 library(kableExtra)
 
