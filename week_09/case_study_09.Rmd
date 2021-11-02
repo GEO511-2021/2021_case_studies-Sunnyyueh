@@ -48,7 +48,11 @@ ggplot()+
   coord_sf(ylim=region[c(2,4)], xlim=region[c(1,3)])
 ```
 
+<<<<<<< HEAD
 ```{r,message=FALSE}
+=======
+```{r}
+>>>>>>> f71ec90bac76698f340b8187f5eab2906bc38031
 us_states<-st_transform(x=us_states,crs=st_crs(storms))
 
 states<-us_states%>%
@@ -56,7 +60,7 @@ states<-us_states%>%
 
 storm_states <- st_join(storms, states, join = st_intersects,left = F)
 
-table<-storm_states%>%
+storm_states%>%
   group_by(state)%>%
   summarize(storms=length(unique(NAME)))%>%
   arrange(desc(storms))%>%
