@@ -58,13 +58,11 @@ states<-us_states%>%
 
 storm_states <- st_join(storms, states, join = st_intersects,left = F)
 
-table<-storm_states%>%
+storm_states%>%
   group_by(state)%>%
   summarize(storms=length(unique(NAME)))%>%
   arrange(desc(storms))%>%
   slice(1:5)
-
-table
 ```
 
     ## Simple feature collection with 5 features and 2 fields

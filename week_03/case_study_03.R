@@ -12,7 +12,7 @@ up<-ggplot(data=data,aes(y=gdpPercap, x=lifeExp))+
   xlab("Life Expectancy")+
   ylab("GPD per capita")+
   labs(size='Populaiton (100k)')
-
+up
 
 gapminder_continent<-data%>%
   group_by (continent,year)%>%
@@ -32,7 +32,7 @@ low<-ggplot(data=data,aes( y=gdpPercap, x=year))+
   xlab("Year")+
   ylab("GPD per capita")+
   labs(size='Populaiton (100k)')
-
+low
 
 library(ggpubr)
 ggarrange(up, low + font("x.text", size = 10),
@@ -40,5 +40,6 @@ ggarrange(up, low + font("x.text", size = 10),
   
 
 figure
-ggsave("case_study_03.png")
+
+ggsave("/Users/sunnyyueh/Desktop/Fall 2021/GEO511_Spatial Data Science/2021_case_studies-Sunnyyueh/week_03/case_study_03.png")
  
