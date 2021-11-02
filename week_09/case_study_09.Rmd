@@ -62,5 +62,5 @@ table<-storm_states%>%
   arrange(desc(storms))%>%
   slice(1:5)
 
-table
+table 
 ```
