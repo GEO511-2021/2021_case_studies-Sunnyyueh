@@ -2,7 +2,7 @@
 title: "Resource"
 author: "Yun Yueh (Sunny)"
 date: "11/10/2021"
-output: html_document
+output: github_document
 ---
 
 # RTstudio
