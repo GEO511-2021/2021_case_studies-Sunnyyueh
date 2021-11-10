@@ -1,0 +1,48 @@
+---
+title: "Resource"
+author: "Yun Yueh (Sunny)"
+date: "11/10/2021"
+output: html_document
+---
+
+# RTstudio
+## Why is it useful?
+## Why is it important?
+
+## The author
+
+## Example
+```{r}
+library(TSstudio)
+```
+
+### Start with creating a time series data
+
+#### Data
+```{r}
+data("AirPassengers")
+AirPassengers
+```
+
+#### Ploting the data
+```{r}
+ts_plot(AirPassengers, Xtitle = "Month", Ytitle = "Value", slider = T)
+```
+
+#### Decomposing the series
+```{r}
+ts_decompose(AirPassengers)
+```
+
+#### Seasonal analysis
+```{r}
+ts_seasonal(AirPassengers, type = "all")
+```
+```{r}
+ts_heatmap(AirPassengers)
+```
+
+```{r}
+ts_surface(AirPassengers)
+```
+
