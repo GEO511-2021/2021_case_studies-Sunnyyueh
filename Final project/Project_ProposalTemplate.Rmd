@@ -1,33 +1,41 @@
 [<i class="fa fa-file-code-o fa-1x" aria-hidden="true"></i> Download this file as a template ](http://adamwilson.us/SpatialDataScience/scripts/Project_ProposalTemplate.Rmd).
 
 # Introduction to problem/question
-  
+
+The outbreak of COVID-19 has caused a huge impact on the global economy. To estimate the global economy, the research scale has shifted from countries to cities, and researchers no longer merely focus on a single economic unit but try to estimate the interactions among cities. Thus, to understand the global economy under COVID-19, it is vital to look into the economic interactions among cities. The data set World City Network (WCN) and airline network have been applied to the research of city network, while WCN could estimate the interlocking network of cities through the global location strategies of Advance Produce Service (APS) firms, and the air links between cities are used to evaluate local economic development. However, the two datasets have difficulties estimating real-time city economic interaction during COVID-19. Thus, this study aims to apply social network analysis (SNA) to identify the possible mechanism of the rapid chaining economic city network. By applying multi-level ERGM on WCN and airline datasets, this research will interpret the transformation of the role of cities and the configuration in the network before and after the outbreak of COVID-19. 
   
 # Problem / Question
-Clearly describe the problem/question you would like to address in a single sentence.
+Visualize the economic interaction between cities and try to understand the role of cities in the global economic network.Comparing economic interaction and filghts between cities.
 
 # Inspiring Examples
 
 Include links and screenshots (or embedded images) of a few (~3-5) example graphics found on the internet that convey what you want to do.  Include a few sentences about why you selected each link.
 
 ## Example 1
-![](https://theoreticalecology.files.wordpress.com/2012/05/6307925837_5074118a44_b.jpg)
+![](/Users/sunnyyueh/Desktop/Fall 2021/GEO511_Spatial Data Science/final project data/exp-2021-09-09_16_06_56.png)
 
-I found this graphic easy to understand yet rich with detail.  The graphic summarizes political shifts across the nation from Democratic (left) to Republican (right) with simple arrows.  This type of graphic could be used to illustrate many different kinds of changes (or movement) using simple `geom_segment()` in ggplot.
+The image above shows the annual GDP growth in 2021 April og each country around the globe, which shows the decline of the economy after COVID. 
 
 ## Example 2
 
+![](/Users/sunnyyueh/Desktop/Fall 2021/GEO511_Spatial Data Science/final project data/EZaL7JxXsAA0D31.jpg-large.jpeg)
+The image shows the travel restristriction in different countries after the out break of COVID-19.
 ## Example 3
-
+![](/Users/sunnyyueh/Desktop/Fall 2021/GEO511_Spatial Data Science/final project data/Screen Shot 2021-11-16 at 1.23.09 AM.png)
+The above shows the concept of WCN from Taylor.
 
 # Proposed data sources
 
-Be as specific as possible.
+Airline network data (before COVID and after COVID)
+WCN data (2016)
 
 # Proposed methods
 
-List the approach you will use. Don't simply list packages, tell me what you will do with them.
+Using igraph and ggplot package to plot the city interactive map and airline network. Also apply tidyverse to visualize the map.
+Use dplyr package to manage the data after using igraph.
+
 
 # Expected results
+Analysis the social network index value for cities selected, try to understand the relationship among cities.(including betweeness, centralization, etc.)
+Plotting the network map with airline data and WCN data, visualize the interaction among cities.
 
-Describe what you want to produce (graphics, analyses, etc.)
