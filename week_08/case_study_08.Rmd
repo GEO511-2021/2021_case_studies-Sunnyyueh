@@ -1,7 +1,39 @@
 ---
 title: "Case Study 08"
-author: Your Name
+author: Sunny Yueh
 date: August 1, 2020
-output: github_document
+output:
+  html_document: default
+  github_document: default
+  powerpoint_presentation: default
+  word_document: default
 ---
- 
+```{r,results='hide',message=FALSE, echo=F}
+library(tidyverse) 
+library(knitr)
+library(kableExtra)
+
+URL<-"ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.txt"
+Data<-read_table(URL,skip=56) 
+Data<-Data[,-1]
+
+```
+
+```{r,results='hide',message=FALSE, echo=F}
+ggplot(data=Data,aes(x=year,y=mean))+
+  geom_line(col="red")
+
+top5<-Data %>%
+  arrange(desc(mean))%>%
+  top_n(mean,n=5)
+
+knitr::kable(top5)
+
+```
+
+```{r}
+top5 %>% 
+  kable() %>% 
+  as_image(width = 20,file = "table.png")
+
+```

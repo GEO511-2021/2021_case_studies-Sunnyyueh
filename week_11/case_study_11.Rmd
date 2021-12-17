@@ -1,7 +1,50 @@
 ---
 title: "Case Study 11"
-author: Your Name
+author: Sunny
 date: August 1, 2020
 output: github_document
 ---
- 
+```{r}
+#library(tidyverse)
+library(spData)
+library(sf)
+
+## New Packages
+library(mapview) # new package that makes easy leaflet maps
+library(foreach)
+library(doParallel)
+registerDoParallel(4)
+getDoParWorkers() # check registered cores
+
+library(tidycensus)
+census_api_key("194dc0f83d1499575346fa0ee9bfc523fe9bfc5c",install = TRUE,overwrite=TRUE)
+
+remotes::install_github("walkerke/tidycensus",force = TRUE)
+library(tidyverse)
+library(tidycensus)
+```
+
+```{r}
+racevars <- c(White = "P005003", 
+              Black = "P005004", 
+              Asian = "P005006", 
+              Hispanic = "P004003")
+
+options(tigris_use_cache = TRUE)
+erie <- tidycensus::get_decennial(geography = "block", variables = racevars, 
+                  state = "NY", county = "Erie County", geometry = TRUE,
+                  summary_var = "P001001", cache_table=T) 
+
+lim<-c(xmin=-78.9,xmax=-78.85,ymin=42.888,ymax=42.92)
+erie_crop<-st_crop(erie,lim)
+
+race<-foreach(i=unique(erie_crop$variable),.combine=rbind)  %dopar% {
+ filter(erie_crop,variable==i)%>%
+    st_sample(size=.$value)%>%
+    st_as_sf()%>%
+    mutate(variable =i)
+}
+
+mapview(race,zcol="variable",cex=0.1,alpha=0.1)  
+
+```
